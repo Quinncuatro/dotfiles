@@ -1,0 +1,41 @@
+[user]
+	name = Henry Quinn
+	email = henryquinniv@gmail.com
+[push]
+  default = simple
+[alias]
+  co = checkout
+  cob = checkout -b
+  ls = log --oneline
+  b = branch
+  bl = branch -l
+  s = status
+  cs = commit -s
+  csm = commit -s -m
+  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  tree = forest --pretty=format:\"%C(red)%h %C(magenta)(%ar) %C(blue)%an %C(reset)%s\" --style=15 --reverse
+  sl = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %Cblue<%aN>%Creset%C(yellow)%d%Creset' --abbrev-commit --date=relative -n 10
+  sc = diff-tree --no-commit-id --name-only -r
+  tl = log --pretty=oneline !| head -n 5
+  po = push -u origin head
+  pr = !hub pull-request
+[core]
+  editor = vim
+  ;excludesfile = ~/.gitignore_global
+  whiteapce = cr-at-eol,indent-with-non-tab
+[merge]
+  conflictstyle = diff3
+  ;conflictstyle = merge
+  tool = fugitive
+[diff]
+  tool = vimdiff
+[mergetool "fugitive"]
+  cmd = vim "+Gdiff" $MERGED
+[color]
+  ui = auto
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[rebase]
+  autosquash = true
